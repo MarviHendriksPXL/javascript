@@ -83,9 +83,12 @@ class Employee {
 */
 
 class Employee {
-  constructor(firstname, lastname) {
-    this.firstname = firstname;
-    this.lastname = lastname;
+  firstname;
+  lastname;
+
+  constructor(a, b) {
+    this.firstname = a;
+    this.lastname = b;
   }
 
   fullname() {
@@ -97,9 +100,9 @@ class Employee {
   }
 }
 
-const emp1 = new Employee("Marvi Hendriks");
-const emp2 = new Employee("Domenico marchese");
-const emp3 = new Employee("Marco Deroeck");
+const emp1 = new Employee("Marvi", "Hendriks");
+const emp2 = new Employee("Domenico", "Marchese");
+const emp3 = new Employee("Marco", "Deroeck");
 
 console.log(emp1.fullname());
 console.log(emp2.fullname());
@@ -134,3 +137,108 @@ BasicPlan.price ➞ '$8.99'
 
 PremiumPlan.numOfDevices ➞ 4
 */
+
+class BasicPlan {
+  static canStream = true;
+  static canDownload = true;
+  static numOfDevices = 1;
+  static hasSD = true;
+  static hasHD = true;
+  static hasUHD = true;
+  static price = "$8.99";
+}
+
+// Write the classes for StandardPlan and PremiumPlan here!
+
+class StandardPlan {
+  static canStream = true;
+  static canDownload = true;
+  static numOfDevices = 2;
+  static hasSD = true;
+  static hasHD = true;
+  static hasUHD = false;
+  static price = "$12.99";
+}
+
+class PremiumPlan {
+  static canStream = true;
+  static canDownload = true;
+  static numOfDevices = 4;
+  static hasSD = true;
+  static hasHD = false;
+  static hasUHD = false;
+  static price = "$15.99";
+}
+
+console.log(BasicPlan.canDownload);
+console.log(BasicPlan.hasUHD);
+console.log(BasicPlan.numOfDevices);
+console.log(StandardPlan.price);
+console.log(StandardPlan.hasUHD);
+console.log(StandardPlan.numOfDevices);
+console.log(PremiumPlan.price);
+console.log(PremiumPlan.hasUHD);
+console.log(PremiumPlan.numOfDevices);
+
+/*
+
+Create a method in the Person class which returns how another person's age compares. Given the instances p1, p2 and p3, which will be initialised with the attributes name and age, return a sentence in the following format:
+
+{other person name} is {older than / younger than / the same age as} me.
+
+Examples
+p1 = Person("Samuel", 24)
+p2 = Person("Joel", 36)
+p3 = Person("Lily", 24)
+
+p1.compareAge(p2) ➞ "Joel is older than me."
+
+p2.compareAge(p1) ➞ "Samuel is younger than me."
+
+p1.compareAge(p3) ➞ "Lily is the same age as me."
+
+---------------------start with this code-----------------------
+
+class Person {
+	constructor(name, age) {
+		this.name = name;
+		this.age = age;
+	}
+
+	compareAge(other) {
+		// Write code here!
+		
+	}
+}
+
+*/
+
+class Person {
+  name;
+  age;
+
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  compareAge(other) {
+    if (this.age < other.age) {
+      return `${other.name} is older than ${this.name}.`;
+    } else if (this.age > other.age) {
+      return `${other.name} is younger than ${this.name}.`;
+    } else {
+      return `${other.name} is the same age as ${this.name}.`;
+    }
+  }
+}
+
+const p11 = new Person("Marvi", 30);
+const p22 = new Person("Domenico", 41);
+const p33 = new Person("Marco", 28);
+
+console.log(p11.compareAge(p22));
+
+console.log(p22.compareAge(p11));
+
+console.log(p11.compareAge(p33));
