@@ -150,21 +150,14 @@ class BasicPlan {
 
 // Write the classes for StandardPlan and PremiumPlan here!
 
-class StandardPlan {
-  static canStream = true;
-  static canDownload = true;
+class StandardPlan extends BasicPlan {
   static numOfDevices = 2;
-  static hasSD = true;
-  static hasHD = true;
   static hasUHD = false;
   static price = "$12.99";
 }
 
-class PremiumPlan {
-  static canStream = true;
-  static canDownload = true;
+class PremiumPlan extends BasicPlan {
   static numOfDevices = 4;
-  static hasSD = true;
   static hasHD = false;
   static hasUHD = false;
   static price = "$15.99";
@@ -176,7 +169,7 @@ console.log(BasicPlan.numOfDevices);
 console.log(StandardPlan.price);
 console.log(StandardPlan.hasUHD);
 console.log(StandardPlan.numOfDevices);
-console.log(PremiumPlan.price);
+console.log(PremiumPlan.canStream);
 console.log(PremiumPlan.hasUHD);
 console.log(PremiumPlan.numOfDevices);
 
