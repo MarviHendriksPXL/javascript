@@ -15,10 +15,15 @@ class Lijst {
 
   aanpassen(functie) {
     for (let i = 0; i < this.lengte; i++) {
-      return (this._lijst[i] = functie);
+      this._lijst[i] = functie(this._lijst[i]);
     }
   }
+
+  get lijst() {
+    return this._lijst;
+  }
 }
+
 const nummers = new Lijst();
 
 nummers.voegToe = 3;
@@ -33,6 +38,7 @@ function maalTwee(item) {
   return item * 2;
 }
 nummers.aanpassen(maalTwee);
-for (let i = 0; i < nummers.length; i++) {
-  console.log(nummers[i]);
+
+for (let i = 0; i < nummers.lengte; i++) {
+  console.log(nummers.lijst[i]);
 }
